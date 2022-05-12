@@ -1,0 +1,28 @@
+server:
+  port: 8086
+
+spring:
+
+  application:
+    name: shop-storage
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/shop_storage?serverTimezone=UTC
+    password: root
+    username: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+security:
+  oauth2:
+    client:
+      client-id: shop-storage
+      client-secret: shop-storage
+      access-token-uri: http://localhost:8081/oauth/token
+      user-authorization-uri: http://localhost:8081/oauth/authorize
+    resource:
+      token-info-uri: http://localhost:8081/oauth/check_token
